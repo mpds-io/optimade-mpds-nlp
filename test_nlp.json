@@ -2,10 +2,10 @@
 	["tio2", { "formulae": "tio2" }],
 	["al2o3", { "formulae": "al2o3" }],
 	["band gap, chlorides", { "props": "band gap", "classes": "chloride" }],
-	["ti o", { "elements": "ti-o" }],
+	["ti o", { "elements": "Ti-O" }],
 	["tio2, band gap", { "formulae": "tio2", "props": "band gap" }],
-	["organic pb i", { "classes": "organic", "elements": "pb-i" }],
-	["organic pb-i perovskite", { "elements": "pb-i", "classes": "organic, perovskite" }],
+	["organic pb i", { "classes": "organic", "elements": "Pb-I" }],
+	["organic pb-i perovskite", { "elements": "Pb-I", "classes": "organic, perovskite" }],
 	["ternary oxide", { "classes": "ternary, oxide" }],
 	["zeolite ite", { "classes": "zeolite" }],
 	["CuLaMnSeO", { "formulae": "CuLaMnSeO" }],
@@ -37,7 +37,7 @@
 	["phase diagrams", { "props": "phase diagram" }],
 	[
 		"thermodynamics superconductor fe",
-		{ "props": "thermodynamics", "classes": "superconductor", "elements": "fe" }
+		{ "props": "thermodynamics", "classes": "superconductor", "elements": "Fe" }
 	],
 	["cub", { "lattices": "cubic" }],
 	[
@@ -56,7 +56,7 @@
 	["beo", {}],
 	["BeO", { "formulae": "BeO" }],
 	["GdNiIn conductivity", { "formulae": "GdNiIn", "props": "conductivity" }],
-	["indium binary oxide metal", { "elements": "in", "classes": "binary, oxide, metal" }],
+	["indium binary oxide metal", { "elements": "In", "classes": "binary, oxide, metal" }],
 	["Pd hydride lattice", { "elements": "Pd", "classes": "hydride", "props": "lattice" }],
 	["Mn halogens Be", { "elements": "Mn-Be", "classes": "halogen" }],
 	[
@@ -98,7 +98,7 @@
 		"lattice of intermetallic binary cubic",
 		{ "props": "lattice", "classes": "intermetallic, binary", "lattices": "cubic" }
 	],
-	["oxygen", { "elements": "o" }],
+	["oxygen", { "elements": "O" }],
 	[
 		"Y oxide lattice ternary",
 		{ "elements": "Y", "classes": "oxide, ternary", "props": "lattice" }
@@ -118,8 +118,8 @@
 	["Ca3(PO4)2", { "formulae": "Ca3(PO4)2" }],
 	["Ca3[PO4]2", { "formulae": "Ca3[PO4]2" }],
 	["conductors", { "classes": "conductor" }],
-	["chromium, fe, tricl", { "elements": "cr-fe", "lattices": "triclinic" }],
-	["astatine, cell", { "elements": "at" }],
+	["chromium, fe, tricl", { "elements": "Cr-Fe", "lattices": "triclinic" }],
+	["astatine, cell", { "elements": "At" }],
 	["Gruneisen coefficient", { "props": "gruneisen coefficients" }],
 	["Seebeck coefficient", { "props": "seebeck coefficient" }],
 	["figure of merit", { "props": "figure of merit" }],
@@ -147,7 +147,7 @@
 	["TiO2 SrTiO3", { "formulae": "TiO2" }],
 	["average number of 4f electrons", {}],
 	["225aaa!", {}],
-	["he-he-he", { "elements": "he-he-he" }],
+	["he-he-he", { "elements": "He-He-He" }],
 	[
 		"electronic contribution to thermal conductivity",
 		{ "props": "electronic contribution to thermal conductivity" }
@@ -157,7 +157,7 @@
 		{ "props": "electronic contribution to superconducting heat capacity" }
 	],
 	["residual resistivity", { "props": "residual resistivity ratio" }],
-	["optical absorption no", { "props": "optical absorption coefficient", "elements": "no" }],
+	["optical absorption no", { "props": "optical absorption coefficient", "elements": "No" }],
 	["energy of optical phonon", { "props": "energy of optical phonon" }],
 	["luminescence", { "props": "values of luminescence" }],
 	["values of luminescence", { "props": "values of luminescence" }],
@@ -177,7 +177,7 @@
 	["What'd I do?", { "elements": "I" }],
 	["OK, let's go", { "formulae": "OK" }],
 	["Ginny Danburry's here.  Look for her", {}],
-	["I think u make me laughing.", { "elements": "I-u" }],
+	["I think u make me laughing.", { "elements": "I-U" }],
 	["physical properties", { "props": "physical properties" }],
 	["physical property", { "props": "physical properties" }],
 	["electric property", { "props": "electric properties" }],

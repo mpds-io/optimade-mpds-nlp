@@ -1,6 +1,6 @@
 {
 	"name": "optimade-mpds-nlp",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"description": "NLP for the Optimade queries based on the MPDS data categories",
 	"main": "index.js",
 	"scripts": {
@@ -10,11 +10,17 @@
 		"index.js"
 	],
 	"keywords": [
-		"optimade", "mpds", "pauling file", "materials informatics"
+		"optimade",
+		"mpds",
+		"pauling file",
+		"chemistry",
+		"formula",
+		"periodic table",
+		"materials informatics"
 	],
 	"author": "Evgeny Blokhin",
 	"license": "MIT",
-	"dependencies": {
+	"devDependencies": {
 		"json-stable-stringify": "^1.0.1"
 	}
 }

@@ -47,6 +47,11 @@ if (typeof String.prototype.endsWith === 'undefined') {
 	};
 }
 
+function firstLetter(string) {
+	return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+
 const OptimadeNLP = function () {
 	/*
 	 * Definitions
@@ -1377,15 +1382,15 @@ const OptimadeNLP = function () {
 		const imatches = getMatchAll(escape(term), /%u208(\d)/g);
 		if (imatches && imatches.length && maybe_formula) return ['formulae']; // no props with subscripts
 
-		if (periodic_elements.includes(term)) return ['elements'];
+		if (periodic_elements.includes(term)) return ['elements', firstLetter(term)];
 		else if (periodic_element_names.includes(term))
-			return ['elements', periodic_elements[periodic_element_names.indexOf(term)]];
+			return [ 'elements', firstLetter(periodic_elements[periodic_element_names.indexOf(term)]) ];
 
 		if (
 			term.includes('-') &&
 			!term.split('-').some((part) => !periodic_elements.includes(part))
 		) {
-			return ['elements'];
+			return [ 'elements', term.split('-').map((el) => firstLetter(el)).join('-') ];
 		}
 
 		if (['element', 'elements', 'elementary'].includes(term)) return ['classes', 'unary'];

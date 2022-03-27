@@ -9,6 +9,10 @@
 	"files": [
 		"index.js"
 	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/mpds-io/optimade-mpds-nlp"
+	},
 	"keywords": [
 		"optimade",
 		"mpds",

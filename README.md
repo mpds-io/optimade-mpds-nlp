@@ -7,7 +7,7 @@ MPDS-based NLP for Optimade
 
 This is the first version of the JavaScript utilities for parsing an arbitrary string into the [Optimade filter query](https://github.com/Materials-Consortia/OPTIMADE). An intermediate layer is the MPDS search query object notation, see the [MPDS platform](https://mpds.io) and its [API documentation](https://mpds.io/developer/#Categories).
 
-Try to paste an example string
+To see how it works, try to paste an example string
 
 `cubic, disordered perovskites with actinides and chlorine`
 

@@ -1393,7 +1393,7 @@ const OptimadeNLP = function () {
 			return [ 'elements', term.split('-').map((el) => firstLetter(el)).join('-') ];
 		}
 
-		if (['element', 'elements', 'elementary'].includes(term)) return ['classes', 'unary'];
+		if (['element', 'elementary'].includes(term)) return ['classes', 'unary'];
 		else if (
 			term === 'quinternary' ||
 			term === 'quinternaries' ||

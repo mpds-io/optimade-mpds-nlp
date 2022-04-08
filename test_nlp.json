@@ -204,5 +204,13 @@
 	["AB ab initio calculations", { "formulae": "AB", "classes": "ab initio calculations" }],
 	["ABC7D9", { "formulae": "ABC7D9" }],
 	["ABCD", { "formulae": "ABCD" }],
-	["ABCDE", {}]
+	["ABCDE", {}],
+	["filter=author=\"Sąžininga Žąsis\"", {}],
+	["(elements HAS \"Ac\" AND nelements=1) OR (elements HAS \"Ac\" AND nsites=1)", {}],
+	["nelements=1", {}],
+	["elements HAS \"Ti\"", {}],
+	["elements HAS ALL \"C\",\"N\",\"O\",\"H\"", {}],
+	["elements HAS \"Ti\" AND nelements>3", {}],
+	["chemical_formula_reduced=\"Li7Sn2\"", {}],
+	["chemical_formula_anonymous=\"ABC\"", {}]
 ]

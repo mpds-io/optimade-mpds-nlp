@@ -1530,6 +1530,7 @@ const OptimadeNLP = function () {
 			if (inputstr.includes('a/b ')) inputstr = inputstr.replace('a/b ', 'a--b ');
 			if (inputstr.includes('b/c ')) inputstr = inputstr.replace('b/c ', 'b--c ');
 		}
+		else if (inputstr.includes('\"')) return {'ignored': inputstr}; // Optimade guard
 
 		const tokens = inputstr
 			.replace(new RegExp('\\+|\\!|\\?', 'g'), '')

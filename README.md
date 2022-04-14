@@ -21,11 +21,20 @@ into the main search field of the MPDS, and it will be correctly recognized and 
 }
 ```
 
+Used by:
+
+- [MPDS GUI](https://github.com/mpds-io/ermac)
+- [Optimade.Science](https://github.com/tilde-lab/optimade.science)
+- [Project Metis GUI](https://github.com/basf/bscience-gui)
+- _etc._
+
+
 ## Installation
 
 ```sh
 npm i optimade-mpds-nlp --save
 ```
+
 
 ## Usage
 

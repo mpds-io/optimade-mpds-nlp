@@ -352,7 +352,21 @@ const OptimadeNLP = function () {
 		'md',
 		'no',
 		'lr',
+		'rf',
+		'db',
+		'sg',
+		'bh',
+		'hs',
+		'mt',
+		'ds',
 		'rg',
+		'cn',
+		'nh',
+		'fl',
+		'mc',
+		'lv',
+		'ts',
+		'og'
 	]; /* exact */
 
 	const periodic_elements_cased = periodic_elements.map(function (x) {
@@ -463,7 +477,21 @@ const OptimadeNLP = function () {
 		'mendelevium',
 		'nobelium',
 		'lawrencium',
+		'rutherfordium',
+		'dubnium',
+		'seaborgium',
+		'bohrium',
+		'hassium',
+		'meitnerium',
+		'darmstadium',
 		'roentgenium',
+		'copernicium',
+		'nihonium',
+		'flerovium',
+		'moscovium',
+		'livermorium',
+		'tennessine',
+		'oganesson'
 	]; /* fuzzy */
 
 	const lat_p2i = {
@@ -1523,14 +1551,16 @@ const OptimadeNLP = function () {
 	 * User input processing: main algorithm
 	 */
 	function guess(inputstr) {
+
 		// *pseudo_numerics*
-		if (inputstr.includes('c/a ') || inputstr.includes('a/b ') || inputstr.includes('b/c ')) {
+		/*if (inputstr.includes('c/a ') || inputstr.includes('a/b ') || inputstr.includes('b/c ')) {
 			// FIXME slashes in names
 			if (inputstr.includes('c/a ')) inputstr = inputstr.replace('c/a ', 'c--a ');
 			if (inputstr.includes('a/b ')) inputstr = inputstr.replace('a/b ', 'a--b ');
 			if (inputstr.includes('b/c ')) inputstr = inputstr.replace('b/c ', 'b--c ');
-		}
-		else if (inputstr.includes('\"')) return {'ignored': inputstr}; // Optimade guard
+		}*/
+
+		if (inputstr.includes('\"')) return {'ignored': inputstr}; // Optimade guard
 
 		const tokens = inputstr
 			.replace(new RegExp('\\+|\\!|\\?', 'g'), '')
@@ -1706,7 +1736,19 @@ const OptimadeNLP = function () {
 	/*
 	 * API
 	 */
-	return { guess, is_formula_anonymous, to_optimade };
+	return {
+		guess,
+		to_optimade,
+
+		is_formula_anonymous,
+		termify_formulae,
+		is_numeric,
+
+		arity_keys,
+		periodic_elements,
+		periodic_elements_cased,
+		periodic_element_names
+	};
 };
 
 if (typeof module !== 'undefined' && module.exports) {

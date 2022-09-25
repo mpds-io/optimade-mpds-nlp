@@ -5,7 +5,7 @@ MPDS-based NLP for Optimade
 [![NPM downloads](https://img.shields.io/npm/dm/optimade-mpds-nlp.svg?style=flat)](https://www.npmjs.com/package/optimade-mpds-nlp)
 [![GitHub issues](https://img.shields.io/github/issues/mpds-io/optimade-mpds-nlp?style=flat)](https://github.com/mpds-io/optimade-mpds-nlp/issues)
 
-This is the first version of the JavaScript utilities for parsing an arbitrary string into the [Optimade filter query](https://github.com/Materials-Consortia/OPTIMADE). An intermediate layer is the MPDS search query object notation, see the [MPDS platform](https://mpds.io) and its [API documentation](https://mpds.io/developer/#Categories).
+This is the first version of the JavaScript utilities for parsing an arbitrary string into the [Optimade filter query](https://github.com/Materials-Consortia/OPTIMADE/blob/master/optimade.rst#appendices). An intermediate layer is the MPDS search query object notation, see the [MPDS platform](https://mpds.io) and its [API documentation](https://mpds.io/developer/#Categories).
 
 To see how it works, try to paste an example string
 
@@ -16,7 +16,7 @@ into the main search field of the MPDS, and it will be correctly recognized and 
 ```
 {
     "elements": "Cl",
-    "classes": "disordered, perovskites, actinides",
+    "classes": "disordered, perovskite, actinoid",
     "lattices": "cubic"
 }
 ```
@@ -25,7 +25,7 @@ Used by:
 
 - [MPDS GUI](https://github.com/mpds-io/ermac)
 - [Optimade.Science](https://github.com/tilde-lab/optimade.science)
-- [Project Metis GUI](https://github.com/basf/bscience-gui)
+- [Project Metis GUI](https://github.com/basf/metis-gui)
 - _etc._
 
 
@@ -67,4 +67,4 @@ There might be some other MPDS-specific Optimade keywords with the `_mpds_` pref
 
 ## License
 
-MIT &copy; Tilde Materials Informatics
+MIT &copy; Tilde Materials Informatics and Materials Platform for Data Science

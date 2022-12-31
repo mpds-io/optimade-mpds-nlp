@@ -5,7 +5,7 @@ MPDS-based NLP for Optimade
 [![NPM downloads](https://img.shields.io/npm/dm/optimade-mpds-nlp.svg?style=flat)](https://www.npmjs.com/package/optimade-mpds-nlp)
 [![GitHub issues](https://img.shields.io/github/issues/mpds-io/optimade-mpds-nlp?style=flat)](https://github.com/mpds-io/optimade-mpds-nlp/issues)
 
-This is the first version of the JavaScript utilities for parsing an arbitrary string into the [Optimade filter query](https://github.com/Materials-Consortia/OPTIMADE/blob/master/optimade.rst#appendices). An intermediate layer is the MPDS search query object notation, see the [MPDS platform](https://mpds.io) and its [API documentation](https://mpds.io/developer/#Categories).
+This is the early version of the JavaScript utilities for parsing an arbitrary string (ideally, in the natural language) into the [Optimade filter query](https://github.com/Materials-Consortia/OPTIMADE/blob/master/optimade.rst#appendices). An intermediate layer is the MPDS search query object notation, see the [MPDS platform](https://mpds.io) and its [API documentation](https://mpds.io/developer/#Categories).
 
 To see how it works, try to paste an example string
 

@@ -1,6 +1,6 @@
 {
 	"name": "optimade-mpds-nlp",
-	"version": "0.1.2",
+	"version": "0.1.5",
 	"description": "NLP for the Optimade queries based on the MPDS data categories",
 	"main": "index.js",
 	"scripts": {
@@ -18,7 +18,8 @@
 		"mpds",
 		"pauling file",
 		"chemistry",
-		"formula",
+		"chemical formula",
+		"chemical formulae",
 		"periodic table",
 		"materials informatics"
 	],

@@ -1830,4 +1830,6 @@ if (typeof module !== 'undefined' && module.exports) {
 	define(function () {
 		return OptimadeNLP;
 	});
+} else if (window !== undefined) {
+	window.OptimadeNLP = OptimadeNLP
 }

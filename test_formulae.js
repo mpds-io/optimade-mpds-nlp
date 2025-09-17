@@ -1,0 +1,84 @@
+#!/usr/bin/env node
+
+const nlp = require('./index');
+
+const guesser = nlp();
+
+function test(input) {
+	const result = guesser.guess(input);
+	return `${input} -> ${guesser.to_optimade(result)}`;
+}
+
+console.log(test('Ga3Ti4Ga7'));
+console.log(test('Ga3Ti4Ga7.0'));
+console.log(test('Ga3.5Ti4.2Ga7.8'));
+console.log(test('Ca3(PO4)2'));
+console.log(test('Ca3[PO4]2'));
+console.log(test('ErSI'));
+console.log(test('CuLaMnSeO'));
+console.log(test('al2o3'));
+console.log(test('o3al2'));
+console.log(test('gdniin'));
+console.log(test('Srtio3'));
+console.log(test('Coseru'));
+console.log(test('ABC3'));
+console.log(test('BNOS'));
+console.log(test('K2SeO4'));
+console.log(test('C11H22O4'));
+console.log(test('Mg0.165La0.375Ti1.5Nb0.335Pb0.5Bi1.625O13.5'));
+console.log(test('C2H5OH'));
+console.log(test('H2[NH4][PO4]'));
+console.log(test('H4Rb1.5Na32.5W60Ni14[PO4]12O192[OH]6[H2O]119'));
+console.log(test('Ba[OD]2'));
+console.log(test('Ba[O2C4O2][H2O]'));
+console.log(test('Ca3Si[CO3][SO4][OH]6[H2O]12'));
+console.log(test('XeOg99Rn56'));
+console.log(test('K2ti2o7'));
+console.log(test('Ba1.25Sr1.25Nb5O15'));
+console.log(test('HO'));
+console.log(test('CHHHOHNH2CH3'));
+console.log(test('HOH'));
+console.log(test('Au2Ge3Re4Te5Tl6Ho7Po8In9Mo10Ta11Ru12Os13Mn14As15Se16Dy17Er18Fl19Og20Mg21'));
+console.log(test('Ba0.3Sr0.7Ti0.5Zr2.5O3'));
+console.log(test('Ba0.22Sr0.78Ti0.5Zr2.5O3'));
+console.log(test('Og55Cf56Bk57'));
+console.log(test('Og55Cf55Bk57'));
+console.log(test('Og55Cf1.25Bk57'));
+console.log(test('Pa11Se23Ge33'));
+console.log(test('(Sc) ht'));
+console.log(test('CuAu tet rt'));
+console.log(test('ABC3'));
+console.log(test('AcBC3'));
+console.log(test('AB'));
+console.log(test('BA'));
+console.log(test('YX'));
+console.log(test('XYZ'));
+console.log(test('CBA3'));
+console.log(test('A2B'));
+console.log(test('A2222B'));
+console.log(test('A0B'));
+console.log(test('A00B000'));
+console.log(test('A0B3'));
+console.log(test('AB0'));
+console.log(test('AB2'));
+console.log(test('A99BC100'));
+console.log(test('A999BC1000'));
+console.log(test('ABCD'));
+console.log(test('A0B0C0D0'));
+console.log(test('A1B1C1D1'));
+console.log(test('A7B44C101D999'));
+console.log(test('A1.0B'));
+console.log(test('A5.9B'));
+console.log(test('A0.5B22.22'));
+console.log(test('A2C2B3D5'));
+console.log(test('A5B3C10'));
+console.log(test('A5B3C6781'));
+console.log(test('A10B5C3'));
+console.log(test('A600L9B5CD'));
+console.log(test('A600B5CD'));
+console.log(test('A600B0CD0'));
+console.log(test('ABEFG'));
+console.log(test('O0'));
+console.log(test('O0.001'));
+console.log(test('O9.001'));
+console.log(test('Z0'));

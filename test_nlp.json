@@ -212,5 +212,56 @@
 	["elements HAS ALL \"C\",\"N\",\"O\",\"H\"", {}],
 	["elements HAS \"Ti\" AND nelements>3", {}],
 	["chemical_formula_reduced=\"Li7Sn2\"", {}],
-	["chemical_formula_anonymous=\"ABC\"", {}]
+  ["chemical_formula_anonymous=\"ABC\"", {}],
+  ["elements HAS \"C\" AND elements HAS \"N\" AND elements HAS \"O\"", {}],
+  ["elements HAS ANY \"C\",\"N\",\"O\"", {}],
+  ["elements HAS \"C\" OR elements HAS \"N\" OR elements HAS \"O\"", {}],
+  ["elements HAS \"C\" AND (elements HAS \"N\" OR elements HAS \"O\")", {}],
+  ["elements HAS ALL \"C\",\"N\",\"O\" AND nelements=3", {}],
+  ["elements HAS ALL \"C\",\"N\",\"O\" AND nelements=4", {}],
+  ["elements HAS ANY \"C\",\"N\",\"O\" AND nelements=3", {}],
+  ["elements HAS ANY \"C\",\"N\",\"O\" AND nelements=4", {}],
+  ["nelements>3 AND elements HAS ANY \"C\",\"N\",\"O\"", {}],
+  ["nelements>4 AND elements HAS ANY \"C\",\"N\",\"O\"", {}],
+  ["nelements>3 AND elements HAS ALL \"C\",\"N\",\"O\"", {}],
+  ["nelements>4 AND elements HAS ALL \"C\",\"N\",\"O\"", {}],
+  ["band gap>1.5", { "numeric": [["band gap", ">", 1.5]], "phased": true }],
+  ["band gap<1.5", { "numeric": [["band gap", "<", 1.5]], "phased": true }],
+  ["band gap>=1.5", { "numeric": [["band gap", ">=", 1.5]], "phased": true }],
+  ["band gap<=1.5", { "numeric": [["band gap", "<=", 1.5]], "phased": true }],
+  ["band gap=1.5", { "numeric": [["band gap", "=", 1.5]], "phased": true }],
+  ["band gap!=1.5", { "numeric": [["band gap", "!=", 1.5]], "phased": true }],
+  [
+    "band gap>1.5 AND band gap<2.0",
+    {
+      "numeric": [
+        ["band gap", ">", 1.5],
+        ["band gap", "<", 2.0]
+      ],
+      "phased": true
+    }
+  ],
+  ["chalcogens", { "elements": "O-S-Se-Te-Po" }],
+  ["period 2", { "elements": "Li-Be-B-C-N-O-F-Ne" }],
+  ["group 11", { "elements": "Cu-Ag-Au-Rg" }],
+  ["tetrels", { "elements": "C-Si-Ge-Sn-Pb-Fl" }],
+  ["tetrel", { "elements": "C-Si-Ge-Sn-Pb-Fl" }],
+  ["all tetrels", { "elements": "C-Si-Ge-Sn-Pb-Fl" }],
+
+  ["all chalcogens", { "elements": "O-S-Se-Te-Po" }],
+  ["Chalcogens", { "elements": "O-S-Se-Te-Po" }],
+  ["chalcogen", { "elements": "O-S-Se-Te-Po" }],
+  ["CHALCOGENS", { "elements": "O-S-Se-Te-Po" }],
+
+  ["period 2 elements", { "elements": "Li-Be-B-C-N-O-F-Ne" }],
+  ["Period 2", { "elements": "Li-Be-B-C-N-O-F-Ne" }],
+  ["PERIOD 2", { "elements": "Li-Be-B-C-N-O-F-Ne" }],
+
+  ["group 11 elements", { "elements": "Cu-Ag-Au-Rg" }],
+  ["Group 11", { "elements": "Cu-Ag-Au-Rg" }],
+  ["ALL GROUP 11", { "elements": "Cu-Ag-Au-Rg" }],
+
+  ["tetrel", { "elements": "C-Si-Ge-Sn-Pb-Fl" }],
+  ["Tetrels", { "elements": "C-Si-Ge-Sn-Pb-Fl" }],
+  ["ALL tetrels", { "elements": "C-Si-Ge-Sn-Pb-Fl" }]
 ]

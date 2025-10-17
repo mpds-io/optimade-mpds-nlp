@@ -901,6 +901,140 @@ const OptimadeNLP = function () {
 		'zircosulfate',
 	];
 
+  // Mapping of common element groups / periods to element symbol arrays
+  const ELEMENT_GROUPS_MAP = {
+    'period 1': ['H', 'He'],
+    'period 2': ['Li', 'Be', 'B', 'C', 'N', 'O', 'F', 'Ne'],
+    'period 3': ['Na', 'Mg', 'Al', 'Si', 'P', 'S', 'Cl', 'Ar'],
+    'period 4': [
+      'K',
+      'Ca',
+      'Sc',
+      'Ti',
+      'V',
+      'Cr',
+      'Mn',
+      'Fe',
+      'Co',
+      'Ni',
+      'Cu',
+      'Zn',
+      'Ga',
+      'Ge',
+      'As',
+      'Se',
+      'Br',
+      'Kr',
+    ],
+    'period 5': [
+      'Rb',
+      'Sr',
+      'Y',
+      'Zr',
+      'Nb',
+      'Mo',
+      'Tc',
+      'Ru',
+      'Rh',
+      'Pd',
+      'Ag',
+      'Cd',
+      'In',
+      'Sn',
+      'Sb',
+      'Te',
+      'I',
+      'Xe',
+    ],
+    'period 6': [
+      'Cs',
+      'Ba',
+      'Lu',
+      'Hf',
+      'Ta',
+      'W',
+      'Re',
+      'Os',
+      'Ir',
+      'Pt',
+      'Au',
+      'Hg',
+      'Tl',
+      'Pb',
+      'Bi',
+      'Po',
+      'At',
+      'Rn',
+    ],
+    'period 7': ['Fr', 'Ra', 'Lr'],
+
+    lanthanide: [
+      'La',
+      'Ce',
+      'Pr',
+      'Nd',
+      'Pm',
+      'Sm',
+      'Eu',
+      'Gd',
+      'Tb',
+      'Dy',
+      'Ho',
+      'Er',
+      'Tm',
+      'Yb',
+    ],
+    actinide: [
+      'Ac',
+      'Th',
+      'Pa',
+      'U',
+      'Np',
+      'Pu',
+      'Am',
+      'Cm',
+      'Bk',
+      'Cf',
+      'Es',
+      'Fm',
+      'Md',
+      'No',
+    ],
+
+    alkali: ['H', 'Li', 'Na', 'K', 'Rb', 'Cs', 'Fr'],
+    alkaline: ['Be', 'Mg', 'Ca', 'Sr', 'Ba', 'Ra'],
+
+    'group 3': ['Sc', 'Y', 'Lu', 'Lr'],
+    'group 4': ['Ti', 'Zr', 'Hf'],
+    'group 5': ['V', 'Nb', 'Ta'],
+    'group 6': ['Cr', 'Mo', 'W'],
+    'group 7': ['Mn', 'Tc', 'Re'],
+    'group 8': ['Fe', 'Ru', 'Os'],
+    'group 9': ['Co', 'Rh', 'Ir'],
+    'group 10': ['Ni', 'Pd', 'Pt'],
+    'group 11': ['Cu', 'Ag', 'Au', 'Rg'],
+    'group 12': ['Zn', 'Cd', 'Hg'],
+
+    triels: ['B', 'Al', 'Ga', 'In', 'Tl'],
+    triel: ['B', 'Al', 'Ga', 'In', 'Tl'],
+    tetrels: ['C', 'Si', 'Ge', 'Sn', 'Pb', 'Fl'],
+    tetrel: ['C', 'Si', 'Ge', 'Sn', 'Pb', 'Fl'],
+    pnictogen: ['N', 'P', 'As', 'Sb', 'Bi'],
+    chalcogen: ['O', 'S', 'Se', 'Te', 'Po'],
+    halogen: ['F', 'Cl', 'Br', 'I', 'At'],
+    'noble gas': ['He', 'Ne', 'Ar', 'Kr', 'Xe', 'Rn'],
+  };
+
+  function getGroupElements(name) {
+    if (!name) return null;
+    const key = name.toLowerCase().trim();
+    // normalize simple plural forms
+    if (ELEMENT_GROUPS_MAP[key]) return ELEMENT_GROUPS_MAP[key];
+    const singular = key.replace(/s$/i, '');
+    if (ELEMENT_GROUPS_MAP[singular]) return ELEMENT_GROUPS_MAP[singular];
+    return null;
+  }
+
 	const mpds_props = [
 		'acceptor concentration',
 		'acceptor to donor concentration',
@@ -1423,6 +1557,10 @@ const OptimadeNLP = function () {
 			return ['classes', 'lanthanoid'];
 		else if (term.endsWith('ite') && term.length > 4) return ['classes'];
 
+    // direct element-group single-word matches (tetrels, triels, chalcogen, etc.)
+    const groupEls = getGroupElements(term);
+    if (groupEls) return ['elements', groupEls.join('-')];
+
 		const chk = term
 			.replace(' structure', '')
 			.replace(' lattice', '')
@@ -1453,6 +1591,16 @@ const OptimadeNLP = function () {
 			});
 		}
 		//console.log("CHECKING TERM FOR MULTI-FACET: "+term);
+
+    // Special handling: phrases like 'period 2' or 'group 11'
+    const pgMatch = term.match(/^(period|group)\s+(\d{1,2})$/);
+    if (pgMatch) {
+      const kind = pgMatch[1];
+      const num = pgMatch[2];
+      const key = `${kind} ${num}`;
+      const els = getGroupElements(key);
+      if (els) return { facet: 'elements', input: els.join('-'), ready: 1 };
+    }
 
 		candidate = check_category(term, 'classes');
 		if (candidate) {
@@ -1654,6 +1802,15 @@ const OptimadeNLP = function () {
 			let facet = false,
 				simple = false;
 			input = input.trim();
+      const linput = input.toLowerCase();
+
+      // Allow 'period' and 'group' to be queued so they can combine with a following number
+      if (linput === 'period' || linput === 'group') {
+        // push a not-ready candidate to queue and continue
+        queue.push({ input: linput, ready: 0 });
+        n_toks++;
+        return;
+      }
 
 			if (
 				input.includes('<') ||
@@ -1662,7 +1819,16 @@ const OptimadeNLP = function () {
 				is_numeric(input)
 			) {
 				// numeric searches
-				if (
+        // If this numeric token is actually the second part of 'period N' or 'group N',
+        // don't treat it as a numeric filter but allow multiword facet combining.
+        if (
+          is_numeric(input) &&
+          queue.length &&
+          (queue[queue.length - 1].input === 'period' ||
+            queue[queue.length - 1].input === 'group')
+        ) {
+          // fall-through to normal multiword processing
+        } else if (
 					input.indexOf('<') === 0 ||
 					input.indexOf('>') === 0 ||
 					input.indexOf('=') === 0
@@ -2015,10 +2181,30 @@ const OptimadeNLP = function () {
 			} else if (categ === 'classes') {
 				parsed[categ].split(', ').forEach(function (item) {
 					const arity = arity_keys.indexOf(item);
-					if (arity > 0) filter.push(`nelements=${arity}`);
+          if (arity > 0) {
+            filter.push(`nelements=${arity}`);
+          } else if (mpds_classes.includes(item)) {
+            filter.push(`_mpds_classes HAS ALL "${item}"`);
+          }
 				});
 			}
 		});
+
+    if (parsed.numeric && Array.isArray(parsed.numeric)) {
+      parsed.numeric.forEach(function (numfilt) {
+        // numfilt: [property, operator, value]
+        if (
+          numfilt.length === 3 &&
+          numfilt[0] &&
+          numfilt[1] &&
+          typeof numfilt[2] !== 'undefined'
+        ) {
+          // Remove _mpds_ prefix if present
+          let prop = numfilt[0].replace(/^_mpds_/, '').replace(/ /g, '_');
+          filter.push(`${prop}${numfilt[1]}${numfilt[2]}`);
+        }
+      });
+    }
 
 		return filter.join(' AND ');
 	}
